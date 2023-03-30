@@ -22,11 +22,11 @@
                 <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
             </form>
         </section>
-        <section id="list" class="card w-50 ">
+        <section id="list" class="card w-50 mt-3">
             <ul class="px-5 py-2">
-                <li v-for="(task, index) in tasks" class="p-2 my-1 border border-black list-unstyled d-flex justify-content-between">
+                <li @click="doneTask(task)"  v-for="(task, index) in tasks" class=" p-2 my-1 border border-black list-unstyled d-flex justify-content-between" :class="{'bg-success': task.done}">
                     {{task.text}} 
-                    <button @click="deleteTask(index)" class="border-0 bg-white"><i class="fa-solid fa-trash-can pt-1 text-danger"></i></button>
+                    <button @click.stop="deleteTask(index)" class="border-0 bg-white"><i class="fa-solid fa-trash-can pt-1 text-danger"></i></button>
                 </li>
             </ul>
         </section>

@@ -7,15 +7,15 @@ const app = Vue.createApp({
             tasks: [
                 {
                     text: 'Uccidere il cane',
-                    done: 'False'
+                    done: false
                 },
                 {
                     text: 'Sparare al bagnino',
-                    done: 'False'  
+                    done: false  
                 },
                 {
                     text: 'Picchiare i carramba',
-                    done: 'False'  
+                    done: false  
                 },
             ]
                 
@@ -24,12 +24,21 @@ const app = Vue.createApp({
     },
     methods: {
         addTask(){
-            const newTaskObject = { text: this.newTask, done: false };
-            this.tasks.push(newTaskObject)
-            this.newTask = '';
+            if(this.newTask !== ''){
+                const newTaskObject = { text: this.newTask, done: false };
+                this.tasks.push(newTaskObject)
+                this.newTask = '';
+            }else{
+                alert('Non hai inserito alcun testo')
+            }
+            
         },
         deleteTask(index){
-            this.tasks.splice(index)
+            this.tasks.splice(index, 1)
+        },
+        doneTask(task){
+            console.log(task)
+            task.done = !task.done
         }
     }
 })
