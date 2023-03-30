@@ -24,8 +24,9 @@
         </section>
         <section id="list" class="card w-50 ">
             <ul class="px-5 py-2">
-                <li v-for="task in tasks">
-                    {{task.text}}
+                <li v-for="(task, index) in tasks" class="p-2 my-1 border border-black list-unstyled d-flex justify-content-between">
+                    {{task.text}} 
+                    <button @click="deleteTask(index)" class="border-0 bg-white"><i class="fa-solid fa-trash-can pt-1 text-danger"></i></button>
                 </li>
             </ul>
         </section>

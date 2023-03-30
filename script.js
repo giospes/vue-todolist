@@ -27,6 +27,9 @@ const app = Vue.createApp({
             const newTaskObject = { text: this.newTask, done: false };
             this.tasks.push(newTaskObject)
             this.newTask = '';
+        },
+        deleteTask(index){
+            this.tasks.splice(index)
         }
     }
 })
