@@ -3,6 +3,7 @@
 const app = Vue.createApp({
     data(){
         return{
+            newTask: '',
             tasks: [
                 {
                     text: 'Uccidere il cane',
@@ -19,6 +20,13 @@ const app = Vue.createApp({
             ]
                 
             
+        }
+    },
+    methods: {
+        addTask(){
+            const newTaskObject = { text: this.newTask, done: false };
+            this.tasks.push(newTaskObject)
+            this.newTask = '';
         }
     }
 })

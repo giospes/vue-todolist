@@ -17,9 +17,9 @@
             <div class="card-head text-center">
                 <h3>Aggiungi Task</h3>
             </div>
-            <form class="card-body d-flex justify-content-center align-items gap-2">
-                <input type="text">
-                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+            <form @submit.prevent="addTask" class="card-body d-flex justify-content-center align-items gap-2">
+                <input type="text" v-model="newTask" >
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
             </form>
         </section>
         <section id="list" class="card w-50 ">
